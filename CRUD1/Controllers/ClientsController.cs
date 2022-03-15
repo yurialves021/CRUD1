@@ -73,5 +73,31 @@ namespace CRUD1.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        public IActionResult Delete(int id)
+        {
+
+            var client = _clientRepository.getClientById(id);
+            return View(client);
+        }
+
+        public IActionResult Remove(int id)
+        {
+            try
+            {
+
+                _clientRepository.RemoveClient(id);
+                TempData["MensagemSucesso"] = "Success !!";
+
+                return RedirectToAction("Index");
+
+            }
+            catch (Exception e)
+            {
+
+                TempData["MensagemErro"] = "Failed:" + e.Message;
+                return RedirectToAction("Index");
+            }
+        }
     }
 }

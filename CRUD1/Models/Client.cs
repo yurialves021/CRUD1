@@ -26,7 +26,7 @@ namespace CRUD1.Models
         [Display(Name = "Birth Date")]
         [Required(ErrorMessage = "birth date is required")]
         [DataType(DataType.Text)]
-        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}")]
+        [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
 
         [Column("PhoneNumber")]
