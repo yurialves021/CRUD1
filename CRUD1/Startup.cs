@@ -1,4 +1,6 @@
 ﻿using CRUD1.Data;
+using CRUD1.Repositories;
+using CRUD1.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Configuration;
 
@@ -18,6 +20,8 @@ namespace CRUD1
             //Conexão com o banco
             services.AddDbContext<Context>(options =>
                       options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<IClientRepository, ClientRepository>();
 
             services.AddControllersWithViews();
         }
@@ -47,7 +51,7 @@ namespace CRUD1
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Clients}/{action=Index}/{id?}");
             });
         }
     }

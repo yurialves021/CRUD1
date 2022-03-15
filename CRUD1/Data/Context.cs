@@ -10,7 +10,8 @@ namespace CRUD1.Data
 
         }
 
-        DbSet<Client> Cliente { get; set; }
-        
+
+        public DbSet<Client> Cliente { get; set; }
+
     }
 }
